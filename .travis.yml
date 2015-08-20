@@ -15,6 +15,7 @@ env:
   - EMBER_TRY_SCENARIO=ember-data-beta.18
   - EMBER_TRY_SCENARIO=ember-data-beta.19
   - EMBER_TRY_SCENARIO=ember-data-1.13
+  - EMBER_TRY_SCENARIO=ember-data-2.0
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
   - EMBER_TRY_SCENARIO=ember-canary
@@ -27,16 +28,7 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
-  # After travis-ci/travis-ci#3225 is resolved, restore this and remove the
-  # manual download/install of PhantomJS 2.0.
-  # - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - mkdir 'phantomjs-2.0.0'
-  - cd 'phantomjs-2.0.0'
-  - curl -O 'https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2'
-  - tar xjvf 'phantomjs-2.0.0-ubuntu-12.04.tar.bz2'
-  - cd -
-  - export PATH=./phantomjs-2.0.0:$PATH
-
+  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
   - "npm config set spin false"
   - "npm install -g npm@^2"
 
